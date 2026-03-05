@@ -1,0 +1,78 @@
+<div class="wishlist">
+  <div class="container">
+    <!-- Header -->
+    <header class="wishlist-header">
+      <div class="header-content">
+        <fa-icon [icon]="faHeart" class="header-icon"></fa-icon>
+        <div class="header-text">
+          <h1 class="page-title">Minha Wishlist</h1>
+          @if (!isEmpty()) {
+            <span class="item-count">{{ wishlistDrinks().length }} bebidas</span>
+          }
+        </div>
+      </div>
+
+      @if (!isEmpty()) {
+        <div class="header-actions">
+          <div class="sort-dropdown">
+            <button
+              class="sort-btn"
+              (click)="toggleSortDropdown()"
+              [class.active]="isSortDropdownOpen()"
+            >
+              <fa-icon [icon]="faSortAmountDown"></fa-icon>
+              <span>{{ getSortLabel() }}</span>
+            </button>
+
+            @if (isSortDropdownOpen()) {
+              <div class="sort-menu">
+                @for (option of sortOptions; track option.value) {
+                  <button
+                    class="sort-option"
+                    [class.active]="selectedSort() === option.value"
+                    (click)="onSortChange(option.value)"
+                  >
+                    {{ option.label }}
+                  </button>
+                }
+              </div>
+            }
+          </div>
+        </div>
+      }
+    </header>
+
+    <!-- Empty State -->
+    @if (isEmpty()) {
+      <div class="empty-state">
+        <div class="empty-icon">
+          <fa-icon [icon]="faMartiniGlass" size="4x"></fa-icon>
+        </div>
+        <h2 class="empty-title">Sua wishlist está vazia</h2>
+        <p class="empty-text">
+          Adicione bebidas à sua wishlist para não esquecer de experimentá-las depois.
+        </p>
+        <a routerLink="/" class="cta-btn">
+          <fa-icon [icon]="faMartiniGlass"></fa-icon>
+          <span>Explorar Bebidas</span>
+        </a>
+      </div>
+    }
+
+    <!-- Wishlist Content -->
+    @if (!isEmpty()) {
+      <div class="wishlist-content">
+        <!-- Drinks Grid -->
+        <div class="drinks-grid">
+          @for (drink of sortedDrinks(); track drink.id) {
+            <app-drink-card
+              [drink]="drink"
+              [isInWishlist]="isInWishlist(drink.id)"
+              (wishlistToggle)="onWishlistToggle($event)"
+            ></app-drink-card>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

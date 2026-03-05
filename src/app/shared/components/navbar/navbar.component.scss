@@ -123,6 +123,33 @@
   border-color: #FF8C00;
 }
 
+.wishlist-btn {
+  position: relative;
+}
+
+.wishlist-count {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #FF8C00;
+  color: #0F0F0F;
+  font-size: 0.625rem;
+  font-weight: 700;
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.wishlist-btn.active {
+  color: #FF8C00;
+  background-color: rgba(255, 140, 0, 0.1);
+}
+
 @media (max-width: 768px) {
   .nav-links {
     display: none;

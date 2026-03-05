@@ -6,13 +6,24 @@
     </a>
     
     <div class="nav-links">
-      <a routerLink="/" class="nav-link active">Início</a>
+      <a routerLink="/" class="nav-link" [class.active]="isRouteActive('/')">Início</a>
       <a routerLink="/" class="nav-link">Explorar</a>
       <a routerLink="/" class="nav-link">Categorias</a>
       <a routerLink="/" class="nav-link">Reviews</a>
     </div>
     
     <div class="nav-actions">
+      <a
+        routerLink="/wishlist"
+        class="nav-btn wishlist-btn"
+        title="Wishlist"
+        [class.active]="isWishlistActive()"
+      >
+        <fa-icon [icon]="faHeart"></fa-icon>
+        @if (wishlistService.count() > 0) {
+          <span class="wishlist-count">{{ wishlistService.count() }}</span>
+        }
+      </a>
       <button class="nav-btn" title="Notificações">
         <fa-icon [icon]="faBell" size="lg"></fa-icon>
       </button>

@@ -57,13 +57,13 @@
   &.favorite-button {
     &:hover {
       background: $color-secondary-bg;
-      color: #ff4444;
+      color: $color-accent-primary;
     }
 
     &.active {
-      background: rgba(255, 68, 68, 0.2);
-      color: #ff4444;
-      border-color: #ff4444;
+      background: rgba(255, 140, 0, 0.2);
+      color: $color-accent-primary;
+      border-color: $color-accent-primary;
     }
   }
 }
@@ -259,6 +259,10 @@
       .store-price {
         color: $color-primary-bg;
       }
+
+      fa-icon {
+        color: $color-primary-bg;
+      }
     }
 
     .buy-link-info {
@@ -275,6 +279,11 @@
     .store-price {
       color: $color-accent-primary;
       font-weight: 700;
+    }
+
+    fa-icon {
+      color: $color-secondary-text;
+      font-size: 1rem;
     }
   }
 }

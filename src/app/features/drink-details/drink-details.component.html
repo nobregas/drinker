@@ -3,12 +3,12 @@
     <!-- Header -->
     <div class="drink-details-header">
       <button class="back-button" (click)="goBack()">
-        <i class="fa-solid fa-arrow-left"></i>
+        <fa-icon [icon]="faArrowLeft"></fa-icon>
         <span>Voltar</span>
       </button>
       <div class="header-actions">
         <button class="action-button" (click)="shareDrink()" title="Compartilhar">
-          <i class="fa-solid fa-share-nodes"></i>
+          <fa-icon [icon]="faShareNodes"></fa-icon>
         </button>
         <button
           class="action-button favorite-button"
@@ -16,7 +16,7 @@
           (click)="toggleFavorite()"
           title="Favoritar"
         >
-          <i [class.fa-regular]="!isFavorite()" [class.fa-solid]="isFavorite()" class="fa-heart"></i>
+          <fa-icon [icon]="isFavorite() ? faHeartSolid : faHeartRegular"></fa-icon>
         </button>
       </div>
     </div>
@@ -95,7 +95,7 @@
                   <span class="store-name">{{ link.storeName }}</span>
                   <span class="store-price">R$ {{ link.price.toFixed(2) }}</span>
                 </div>
-                <i class="fa-solid fa-external-link"></i>
+                <fa-icon [icon]="faExternalLink"></fa-icon>
               </a>
             }
           </div>

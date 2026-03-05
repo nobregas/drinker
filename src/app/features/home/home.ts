@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faFire, faStar, faMartiniGlass, faComment, faArrowRight, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { DrinkCardComponent } from '../../shared/components/drink-card/drink-card';
+import { WishlistService } from '../../core/services/wishlist.service';
+import { Drink } from '../../core/models/drink.model';
 import { MOCK_DRINKS } from '../../core/mock-data/mock-drinks';
 import { MOCK_CATEGORIES } from '../../core/mock-data/mock-categories';
 import { MOCK_REVIEWS } from '../../core/mock-data/mock-reviews';
@@ -21,6 +23,8 @@ import { MOCK_REVIEWS } from '../../core/mock-data/mock-reviews';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  constructor(private readonly wishlistService: WishlistService) {}
+
   // Model signal for two-way binding with ngModel
   readonly searchTerm = model('');
 
@@ -48,4 +52,18 @@ export class HomeComponent {
   readonly faComment = faComment;
   readonly faArrowRight = faArrowRight;
   readonly faChevronRight = faChevronRight;
+
+  /**
+   * Check if a drink is in the wishlist
+   */
+  isInWishlist(drinkId: number): boolean {
+    return this.wishlistService.isInWishlist(drinkId);
+  }
+
+  /**
+   * Toggle wishlist status for a drink
+   */
+  onWishlistToggle(drink: Drink): void {
+    this.wishlistService.toggleWishlist(drink);
+  }
 }

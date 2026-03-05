@@ -70,7 +70,11 @@
           
           <div class="drinks-grid">
             @for (drink of filteredDrinks(); track drink.id) {
-              <app-drink-card [drink]="drink"></app-drink-card>
+              <app-drink-card
+                [drink]="drink"
+                [isInWishlist]="isInWishlist(drink.id)"
+                (wishlistToggle)="onWishlistToggle($event)"
+              ></app-drink-card>
             }
           </div>
 
