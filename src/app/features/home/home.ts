@@ -9,6 +9,7 @@ import { Drink } from '../../core/models/drink.model';
 import { MOCK_DRINKS } from '../../core/mock-data/mock-drinks';
 import { MOCK_CATEGORIES } from '../../core/mock-data/mock-categories';
 import { MOCK_REVIEWS } from '../../core/mock-data/mock-reviews';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -23,10 +24,14 @@ import { MOCK_REVIEWS } from '../../core/mock-data/mock-reviews';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-  constructor(private readonly wishlistService: WishlistService) {}
+  constructor(
+    private readonly wishlistService: WishlistService,
+    private readonly router: Router
+  ) {}
 
   // Model signal for two-way binding with ngModel
   readonly searchTerm = model('');
+  readonly selectedCategory = signal('');
 
   // Signals for state management
   readonly trendingDrinks = signal(MOCK_DRINKS.slice(0, 5));
@@ -36,13 +41,15 @@ export class HomeComponent {
   // Computed signal for filtered drinks
   readonly filteredDrinks = computed(() => {
     const term = this.searchTerm().trim().toLowerCase();
-    if (!term) {
-      return MOCK_DRINKS;
-    }
-    return MOCK_DRINKS.filter(drink =>
-      drink.name.toLowerCase().includes(term) ||
-      drink.category.toLowerCase().includes(term)
-    );
+    const category = this.selectedCategory();
+
+    return MOCK_DRINKS.filter(drink => {
+      const matchesSearch = !term ||
+        drink.name.toLowerCase().includes(term) ||
+        drink.category.toLowerCase().includes(term);
+      const matchesCategory = !category || drink.category === category;
+      return matchesSearch && matchesCategory;
+    });
   });
 
   // Font Awesome icons
@@ -65,5 +72,30 @@ export class HomeComponent {
    */
   onWishlistToggle(drink: Drink): void {
     this.wishlistService.toggleWishlist(drink);
+  }
+
+  /**
+   * Navigate to drink details page
+   */
+  navigateToDrink(drinkId: number): void {
+    this.router.navigate(['/drinks', drinkId]);
+  }
+
+  /**
+   * Filter drinks by category
+   */
+  filterByCategory(categoryName: string): void {
+    if (this.selectedCategory() === categoryName) {
+      this.selectedCategory.set('');
+    } else {
+      this.selectedCategory.set(categoryName);
+    }
+  }
+
+  /**
+   * Check if a category is currently selected
+   */
+  isCategorySelected(categoryName: string): boolean {
+    return this.selectedCategory() === categoryName;
   }
 }

@@ -181,3 +181,4 @@ All data is mocked from `core/mock-data/` files. No API integration yet.
 
 ## Rules
 You must never write any code that does not follow the design system and code style rules.
+You must never write hexcode, etc... always look for the common styles at root src

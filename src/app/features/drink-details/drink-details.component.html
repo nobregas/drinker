@@ -29,6 +29,9 @@
         <div class="drink-image-section">
           <img [src]="drinkData.image" [alt]="drinkData.name" class="drink-image" />
           <span class="category-badge">{{ drinkData.category }}</span>
+          @if (drinkData.isTrending) {
+            <fa-icon [icon]="faFire" class="trending-icon"></fa-icon>
+          }
         </div>
 
         <!-- Basic Info Card -->

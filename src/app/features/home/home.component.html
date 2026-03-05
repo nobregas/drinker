@@ -21,12 +21,12 @@
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <fa-icon [icon]="faFire" class="section-icon"></fa-icon>
+        <fa-icon [icon]="faFire" class="section-icon section-icon-only"></fa-icon>
         <h2 class="section-title">Em Alta Esta Semana</h2>
       </div>
       <div class="trending-scroll">
         @for (drink of trendingDrinks(); track drink.id; let i = $index) {
-          <div class="trending-card">
+          <div class="trending-card" (click)="navigateToDrink(drink.id)">
             <img [src]="drink.image" [alt]="drink.name" class="trending-image" />
             <div class="trending-content">
               <div class="trending-rank">#{{ i + 1 }} Em {{ drink.category }}</div>
@@ -48,7 +48,7 @@
       <h2 class="section-title-plain">Navegar por Categoria</h2>
       <div class="categories-scroll">
         @for (category of categories(); track category.id) {
-          <button class="category-btn">
+          <button class="category-btn" [class.active]="isCategorySelected(category.name)" (click)="filterByCategory(category.name)">
             <span class="category-icon">{{ category.icon }}</span>
             <span class="category-name">{{ category.name }}</span>
           </button>
@@ -92,7 +92,7 @@
             <div class="no-results">
               <fa-icon [icon]="faMartiniGlass" class="no-results-icon" size="3x"></fa-icon>
               <h3 class="no-results-title">Nenhuma bebida encontrada</h3>
-              <p class="no-results-text">Tente buscar por "{{ searchTerm() }}" novamente.</p>
+              <p class="no-results-text">Tente buscar, filtrar por categoria ou recarregar a página novamente.</p>
             </div>
           }
         </div>

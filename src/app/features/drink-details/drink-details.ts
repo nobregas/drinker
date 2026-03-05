@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faArrowLeft, faShareNodes, faHeart as faHeartSolid, faExternalLink } from '@fortawesome/free-solid-svg-icons';
+import { faArrowLeft, faShareNodes, faHeart as faHeartSolid, faExternalLink, faFire } from '@fortawesome/free-solid-svg-icons';
 import { faHeart as faHeartRegular } from '@fortawesome/free-regular-svg-icons';
 import { MOCK_DRINKS } from '../../core/mock-data/mock-drinks';
 import { Drink } from '../../core/models/drink.model';
@@ -29,6 +29,7 @@ export class DrinkDetailsComponent implements OnInit {
   protected readonly faHeartSolid = faHeartSolid;
   protected readonly faHeartRegular = faHeartRegular;
   protected readonly faExternalLink = faExternalLink;
+  protected readonly faFire = faFire;
 
   readonly drink = signal<Drink | null>(null);
 

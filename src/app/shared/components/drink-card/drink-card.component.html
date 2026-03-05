@@ -3,14 +3,11 @@
     <div class="drink-image-wrapper">
       <img [src]="drink().image" [alt]="drink().name" class="drink-image" />
       @if (drink().isTrending) {
-        <div class="trending-badge">
-          <i class="fa-solid fa-fire"></i>
-          <span>Trending</span>
-        </div>
+        <fa-icon [icon]="faFire" class="trending-icon"></fa-icon>
       }
       <div class="card-overlay">
         <div class="overlay-content">
-          <i class="fa-solid fa-arrow-right"></i>
+          <fa-icon [icon]="faArrowRight"></fa-icon>
         </div>
       </div>
       <button
@@ -29,7 +26,7 @@
       </div>
       <div class="drink-stats">
         <div class="drink-rating">
-          <i class="fa-solid fa-star"></i>
+          <fa-icon [icon]="faStar" class="star-icon"></fa-icon>
           <span>{{ drink().rating.toFixed(1) }}</span>
         </div>
         <span class="review-count">({{ drink().reviewCount }})</span>
@@ -41,7 +38,7 @@
         </div>
         <div class="view-hint">
           <span>Ver detalhes</span>
-          <i class="fa-solid fa-chevron-right"></i>
+          <fa-icon [icon]="faChevronRight"></fa-icon>
         </div>
       </div>
     </div>
