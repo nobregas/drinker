@@ -16,6 +16,8 @@ ng serve
 ```
 Runs the dev server at `http://localhost:4200/` with hot reload.
 
+** Important: After each code change, validate if the build is working:
+
 ### Build Project
 ```bash
 npm run build
@@ -176,3 +178,6 @@ The app is in early development with mock data. The home page is the main view, 
 - Review sidebar
 
 All data is mocked from `core/mock-data/` files. No API integration yet.
+
+## Rules
+You must never write any code that does not follow the design system and code style rules.
