@@ -1,0 +1,79 @@
+// Flexbox
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Grid
+@mixin grid-responsive($columns: 2, $gap: 1rem) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Spacing
+@mixin padding($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  padding: $top $right $bottom $left;
+}
+
+@mixin margin($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  margin: $top $right $bottom $left;
+}
+
+// Typography
+@mixin text-truncate($lines: 1) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+}
+
+// Transitions
+@mixin transition($properties: all, $duration: $transition-normal) {
+  transition: $properties $duration;
+}
+
+// Cards
+@mixin card {
+  background-color: $color-surface;
+  border-radius: $border-radius-lg;
+  padding: $spacing-md;
+  box-shadow: $shadow-sm;
+  transition: transform $transition-normal, box-shadow $transition-normal;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-md;
+  }
+}
+
+// Buttons
+@mixin button-primary {
+  background-color: $color-accent-primary;
+  color: $color-primary-bg;
+  padding: $spacing-sm $spacing-md;
+  border-radius: $border-radius-md;
+  font-weight: 600;
+  transition: background-color $transition-fast;
+
+  &:hover {
+    background-color: $color-accent-hover;
+  }
+}

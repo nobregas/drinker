@@ -1,0 +1,11 @@
+<div class="rating">
+  @for (starData of starIcons(); track starData.star) {
+    <fa-icon
+      [icon]="starData.icon"
+      class="star"
+      [class.filled]="starData.isFilled"
+      [class.half]="starData.star > rating() && starData.star < rating() + 1"
+    ></fa-icon>
+  }
+  <span class="rating-number">{{ rating().toFixed(1) }}</span>
+</div>

@@ -1,0 +1,57 @@
+.review-card {
+  background-color: #222222;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.user-avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-info {
+  flex: 1;
+}
+
+.user-name {
+  margin: 0 0 0.25rem 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #F5F5F5;
+}
+
+.review-date {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #B3B3B3;
+}
+
+.review-text {
+  margin: 0 0 1rem 0;
+  font-size: 0.95rem;
+  color: #B3B3B3;
+  line-height: 1.5;
+}
+
+.drink-reference {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #FF8C00;
+  font-weight: 600;
+}

@@ -1,0 +1,26 @@
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.star {
+  font-size: 1rem;
+  color: #2C2C2C;
+  transition: color 0.2s ease;
+}
+
+.star.filled {
+  color: #FFC107;
+}
+
+.star.half {
+  opacity: 0.7;
+}
+
+.rating-number {
+  margin-left: 0.5rem;
+  color: #B3B3B3;
+  font-size: 0.875rem;
+  font-weight: 600;
+}

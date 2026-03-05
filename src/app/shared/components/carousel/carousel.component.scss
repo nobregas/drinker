@@ -1,0 +1,41 @@
+.carousel {
+  overflow: hidden;
+  margin: 2rem 0;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 1rem 0;
+}
+
+.carousel-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-container::-webkit-scrollbar-track {
+  background: #1A1A1A;
+  border-radius: 4px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb {
+  background: #2C2C2C;
+  border-radius: 4px;
+}
+
+.carousel-container::-webkit-scrollbar-thumb:hover {
+  background: #FF8C00;
+}
+
+.carousel-item {
+  min-width: 280px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .carousel-item {
+    min-width: 240px;
+  }
+}

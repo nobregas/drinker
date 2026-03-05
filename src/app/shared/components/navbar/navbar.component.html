@@ -1,0 +1,28 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <a routerLink="/" class="logo">
+      <span class="logo-icon"><fa-icon [icon]="faMartiniGlass"></fa-icon></span>
+      <span class="logo-text">Drinker</span>
+    </a>
+    
+    <div class="nav-links">
+      <a routerLink="/" class="nav-link active">Início</a>
+      <a routerLink="/" class="nav-link">Explorar</a>
+      <a routerLink="/" class="nav-link">Categorias</a>
+      <a routerLink="/" class="nav-link">Reviews</a>
+    </div>
+    
+    <div class="nav-actions">
+      <button class="nav-btn" title="Notificações">
+        <fa-icon [icon]="faBell" size="lg"></fa-icon>
+      </button>
+      <button class="nav-btn primary" title="Adicionar">
+        <fa-icon [icon]="faPlus"></fa-icon>
+        <span class="btn-text">Registrar</span>
+      </button>
+      <div class="user-avatar">
+        <span>GB</span>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,10 @@
+<div class="carousel">
+  <div class="carousel-container">
+    @for (drink of drinks(); track drink.id) {
+      <app-drink-card
+        [drink]="drink"
+        class="carousel-item"
+      ></app-drink-card>
+    }
+  </div>
+</div>
