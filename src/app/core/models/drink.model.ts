@@ -1,3 +1,9 @@
+export interface BuyLink {
+  storeName: string;
+  url: string;
+  price: number;
+}
+
 export interface Drink {
   id: number;
   name: string;
@@ -12,4 +18,9 @@ export interface Drink {
   country: string;
   tags: string[];
   verdict: string;
+  buyLinks: BuyLink[];
+  sensorialNotes: string[];
+  description: string;
+  isFavorite: boolean;
+  reviews?: any[];
 }

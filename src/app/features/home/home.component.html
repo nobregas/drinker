@@ -70,21 +70,7 @@
           
           <div class="drinks-grid">
             @for (drink of filteredDrinks(); track drink.id) {
-              <div class="drink-item">
-                <div class="drink-image-wrapper">
-                  <img [src]="drink.image" [alt]="drink.name" class="drink-img" />
-                </div>
-                <div class="drink-overlay">
-                  <h3 class="drink-title">{{ drink.name }}</h3>
-                  <div class="drink-meta">
-                    <span class="drink-category">{{ drink.category }}</span>
-                    <div class="drink-rating-small">
-                      <fa-icon [icon]="faStar" class="star-small"></fa-icon>
-                      <span>{{ drink.rating.toFixed(1) }}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <app-drink-card [drink]="drink"></app-drink-card>
             }
           </div>
 

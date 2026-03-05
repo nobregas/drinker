@@ -2,12 +2,8 @@ import { Component, signal, computed, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { faFire, faStar, faMartiniGlass, faComment } from '@fortawesome/free-solid-svg-icons';
-import { CarouselComponent } from '../../shared/components/carousel/carousel';
-import { CategoryCardComponent } from '../../shared/components/category-card/category-card';
+import { faFire, faStar, faMartiniGlass, faComment, faArrowRight, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { DrinkCardComponent } from '../../shared/components/drink-card/drink-card';
-import { ReviewCardComponent } from '../../shared/components/review-card/review-card';
-import { RatingComponent } from '../../shared/components/rating/rating';
 import { MOCK_DRINKS } from '../../core/mock-data/mock-drinks';
 import { MOCK_CATEGORIES } from '../../core/mock-data/mock-categories';
 import { MOCK_REVIEWS } from '../../core/mock-data/mock-reviews';
@@ -19,11 +15,7 @@ import { MOCK_REVIEWS } from '../../core/mock-data/mock-reviews';
     CommonModule,
     FormsModule,
     FontAwesomeModule,
-    CarouselComponent,
-    CategoryCardComponent,
-    DrinkCardComponent,
-    ReviewCardComponent,
-    RatingComponent
+    DrinkCardComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
@@ -54,4 +46,6 @@ export class HomeComponent {
   readonly faStar = faStar;
   readonly faMartiniGlass = faMartiniGlass;
   readonly faComment = faComment;
+  readonly faArrowRight = faArrowRight;
+  readonly faChevronRight = faChevronRight;
 }

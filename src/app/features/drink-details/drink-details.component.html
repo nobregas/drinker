@@ -1,0 +1,135 @@
+@if (drink(); as drinkData) {
+  <div class="drink-details-container">
+    <!-- Header -->
+    <div class="drink-details-header">
+      <button class="back-button" (click)="goBack()">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Voltar</span>
+      </button>
+      <div class="header-actions">
+        <button class="action-button" (click)="shareDrink()" title="Compartilhar">
+          <i class="fa-solid fa-share-nodes"></i>
+        </button>
+        <button
+          class="action-button favorite-button"
+          [class.active]="isFavorite()"
+          (click)="toggleFavorite()"
+          title="Favoritar"
+        >
+          <i [class.fa-regular]="!isFavorite()" [class.fa-solid]="isFavorite()" class="fa-heart"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Two-column layout -->
+    <div class="drink-details-content">
+      <!-- Left Column -->
+      <div class="left-column">
+        <!-- Image with Category Badge -->
+        <div class="drink-image-section">
+          <img [src]="drinkData.image" [alt]="drinkData.name" class="drink-image" />
+          <span class="category-badge">{{ drinkData.category }}</span>
+        </div>
+
+        <!-- Basic Info Card -->
+        <div class="card info-card">
+          <h1 class="drink-title">{{ drinkData.name }}</h1>
+          <div class="rating-section">
+            <app-rating [rating]="avgRating()"></app-rating>
+            <span class="review-count">{{ totalReviews() }} reviews</span>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <span class="stat-label">Origem</span>
+              <span class="stat-value">{{ drinkData.country }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Teor</span>
+              <span class="stat-value">{{ drinkData.abv }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Preço Médio</span>
+              <span class="stat-value">R$ {{ drinkData.price.toFixed(2) }}</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Status</span>
+              <span class="stat-value status-badge" [class.status-aberta]="drinkData.status === 'Aberta'"
+                [class.status-finalizada]="drinkData.status === 'Finalizada'"
+                [class.status-fechada]="drinkData.status === 'Fechada'">{{ drinkData.status }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Description Card -->
+        <div class="card description-card">
+          <h2 class="card-title">Sobre</h2>
+          <p class="description-text">{{ drinkData.description }}</p>
+        </div>
+
+        <!-- Sensorial Notes Card -->
+        <div class="card sensorial-notes-card">
+          <h2 class="card-title">Notas Sensoriais</h2>
+          <ul class="sensorial-notes-list">
+            @for (note of drinkData.sensorialNotes; track note) {
+              <li class="sensorial-note">{{ note }}</li>
+            }
+          </ul>
+        </div>
+
+        <!-- Verdict Card -->
+        <div class="card verdict-card">
+          <h2 class="card-title">Veredito</h2>
+          <p class="verdict-text">{{ drinkData.verdict }}</p>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="right-column">
+        <!-- Buy Links Card -->
+        <div class="card buy-links-card">
+          <h2 class="card-title">Onde Comprar</h2>
+          <div class="buy-links-list">
+            @for (link of drinkData.buyLinks; track link.storeName) {
+              <a [href]="link.url" target="_blank" rel="noopener noreferrer" class="buy-link-item">
+                <div class="buy-link-info">
+                  <span class="store-name">{{ link.storeName }}</span>
+                  <span class="store-price">R$ {{ link.price.toFixed(2) }}</span>
+                </div>
+                <i class="fa-solid fa-external-link"></i>
+              </a>
+            }
+          </div>
+        </div>
+
+        <!-- Tags Card -->
+        <div class="card tags-card">
+          <h2 class="card-title">Tags</h2>
+          <div class="tags-list">
+            @for (tag of drinkData.tags; track tag) {
+              <span class="tag-pill">{{ tag }}</span>
+            }
+          </div>
+        </div>
+
+        <!-- Reviews Card -->
+        <div class="card reviews-card">
+          <h2 class="card-title">Reviews Recentes</h2>
+          @if (drinkData.reviews && drinkData.reviews.length > 0) {
+            <div class="reviews-list">
+              @for (review of drinkData.reviews; track review.id) {
+                <app-review-card [review]="review"></app-review-card>
+              }
+            </div>
+          } @else {
+            <p class="no-reviews">Nenhuma review disponível para esta bebida.</p>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+} @else {
+  <div class="loading-container">
+    <div class="loading-spinner"></div>
+    <p>Carregando detalhes...</p>
+  </div>
+}

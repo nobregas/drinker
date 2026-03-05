@@ -1,0 +1,343 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
+.drink-details-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: $spacing-lg $spacing-md;
+}
+
+.drink-details-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: $spacing-lg;
+  padding-bottom: $spacing-md;
+  border-bottom: 1px solid $color-border;
+}
+
+.back-button {
+  @include button-primary;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  background: transparent;
+  color: $color-primary-text;
+  border: 1px solid $color-border;
+
+  &:hover {
+    background: $color-secondary-bg;
+    color: $color-accent-primary;
+  }
+}
+
+.header-actions {
+  display: flex;
+  gap: $spacing-sm;
+}
+
+.action-button {
+  @include button-primary;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%;
+  background: $color-surface;
+  color: $color-primary-text;
+  border: 1px solid $color-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    background: $color-secondary-bg;
+    color: $color-accent-primary;
+  }
+
+  &.favorite-button {
+    &:hover {
+      background: $color-secondary-bg;
+      color: #ff4444;
+    }
+
+    &.active {
+      background: rgba(255, 68, 68, 0.2);
+      color: #ff4444;
+      border-color: #ff4444;
+    }
+  }
+}
+
+.drink-details-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: $spacing-lg;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.left-column,
+.right-column {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.card {
+  @include card;
+  background: $color-surface;
+  border-radius: $border-radius-lg;
+  padding: $spacing-md;
+}
+
+.card-title {
+  font-size: $font-size-h4;
+  font-weight: 600;
+  margin-bottom: $spacing-sm;
+  color: $color-primary-text;
+}
+
+.drink-image-section {
+  position: relative;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  margin-bottom: $spacing-md;
+}
+
+.drink-image {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.category-badge {
+  position: absolute;
+  top: $spacing-sm;
+  left: $spacing-sm;
+  background: $color-accent-primary;
+  color: $color-primary-bg;
+  padding: $spacing-xs $spacing-sm;
+  border-radius: $border-radius-sm;
+  font-size: $font-size-small;
+  font-weight: 600;
+}
+
+.info-card {
+  .drink-title {
+    font-size: $font-size-h2;
+    font-weight: 700;
+    margin-bottom: $spacing-sm;
+    color: $color-primary-text;
+  }
+
+  .rating-section {
+    display: flex;
+    align-items: center;
+    gap: $spacing-sm;
+    margin-bottom: $spacing-md;
+  }
+
+  .review-count {
+    color: $color-secondary-text;
+    font-size: $font-size-small;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: $spacing-md;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  .stat-label {
+    font-size: $font-size-small;
+    color: $color-secondary-text;
+  }
+
+  .stat-value {
+    font-size: $font-size-body;
+    font-weight: 600;
+    color: $color-primary-text;
+  }
+
+  .status-badge {
+    display: inline-block;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $border-radius-sm;
+    font-size: $font-size-small;
+    font-weight: 600;
+
+    &.status-aberta {
+      background: rgba(76, 175, 80, 0.2);
+      color: #4caf50;
+    }
+
+    &.status-finalizada {
+      background: rgba(255, 193, 7, 0.2);
+      color: #ffc107;
+    }
+
+    &.status-fechada {
+      background: rgba(158, 158, 158, 0.2);
+      color: #9e9e9e;
+    }
+  }
+}
+
+.description-card {
+  .description-text {
+    line-height: 1.6;
+    color: $color-primary-text;
+  }
+}
+
+.sensorial-notes-card {
+  .sensorial-notes-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sensorial-note {
+    position: relative;
+    padding-left: $spacing-md;
+    margin-bottom: $spacing-sm;
+    color: $color-primary-text;
+
+    &::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: $color-accent-primary;
+      font-weight: bold;
+    }
+  }
+}
+
+.verdict-card {
+  background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
+  border: 1px solid rgba(255, 140, 0, 0.3);
+
+  .verdict-text {
+    font-style: italic;
+    line-height: 1.6;
+    color: $color-primary-text;
+  }
+}
+
+.buy-links-card {
+  .buy-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  .buy-link-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $spacing-sm;
+    background: $color-secondary-bg;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-md;
+    text-decoration: none;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: $color-accent-primary;
+      border-color: $color-accent-primary;
+      color: $color-primary-bg;
+
+      .store-name,
+      .store-price {
+        color: $color-primary-bg;
+      }
+    }
+
+    .buy-link-info {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-xs;
+    }
+
+    .store-name {
+      color: $color-primary-text;
+      font-weight: 600;
+    }
+
+    .store-price {
+      color: $color-accent-primary;
+      font-weight: 700;
+    }
+  }
+}
+
+.tags-card {
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+  }
+
+  .tag-pill {
+    display: inline-block;
+    padding: $spacing-xs $spacing-sm;
+    background: $color-secondary-bg;
+    border: 1px solid $color-border;
+    border-radius: $border-radius-lg;
+    font-size: $font-size-small;
+    color: $color-secondary-text;
+    transition: all $transition-fast;
+
+    &:hover {
+      background: $color-accent-primary;
+      border-color: $color-accent-primary;
+      color: $color-primary-bg;
+    }
+  }
+}
+
+.reviews-card {
+  .reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  .no-reviews {
+    color: $color-secondary-text;
+    font-style: italic;
+  }
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-xl;
+  gap: $spacing-md;
+  color: $color-secondary-text;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid $color-secondary-bg;
+  border-top-color: $color-accent-primary;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
