@@ -13,10 +13,9 @@ export interface Toast {
   providedIn: 'root'
 })
 export class ToastService {
-  private toasts = signal<Toast[]>([]);
+  private readonly toasts = signal<Toast[]>([]);
+  readonly toasts$ = this.toasts.asReadonly();
   private nextId = 0;
-
-  toasts = this.toasts.asReadonly();
 
   showSuccess(message: string, duration: number = 3000): void {
     this.showToast(message, 'success', duration);
