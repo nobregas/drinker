@@ -16,7 +16,7 @@ export class ToastService {
   private toasts = signal<Toast[]>([]);
   private nextId = 0;
 
-  toastsSignal = this.toasts.asReadonly();
+  toasts = this.toasts.asReadonly();
 
   showSuccess(message: string, duration: number = 3000): void {
     this.showToast(message, 'success', duration);
