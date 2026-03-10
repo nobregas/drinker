@@ -6,4 +6,6 @@ export interface Review {
   date: string;
   text: string;
   drinkName: string;
+  likes?: number;
+  commentCount?: number;
 }
