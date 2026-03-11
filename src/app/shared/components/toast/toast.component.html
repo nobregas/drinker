@@ -1,0 +1,11 @@
+<div class="toast toast-{{ toast().type }}">
+  <div class="toast-icon">
+    <fa-icon [icon]="getIconForType(toast().type)"></fa-icon>
+  </div>
+  <div class="toast-content">
+    <p class="toast-message">{{ toast().message }}</p>
+  </div>
+  <button class="toast-close" (click)="onClose()">
+    <fa-icon [icon]="faTimes"></fa-icon>
+  </button>
+</div>
