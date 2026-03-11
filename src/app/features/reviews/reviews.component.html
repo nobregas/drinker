@@ -1,0 +1,57 @@
+<div class="reviews-page">
+  <aside class="sidebar">
+    <app-reviews-sidebar></app-reviews-sidebar>
+  </aside>
+
+  <main class="main-content">
+    <div class="content-header">
+      <div class="header-left">
+        <h1>Reviews</h1>
+        <div class="category-filters">
+          @for (category of categories(); track category.name) {
+            <button
+              class="category-pill"
+              [class.active]="selectedCategory() === category.name"
+              (click)="onCategorySelect(category.name)"
+            >
+              {{ category.name }}
+              <span class="count">({{ category.count }})</span>
+            </button>
+          }
+        </div>
+      </div>
+
+      <div class="header-right">
+        <select class="sort-select" [(ngModel)]="selectedSort">
+          @for (option of sortOptions; track option.value) {
+            <option [value]="option.value">{{ option.label }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <div class="reviews-grid">
+      @if (isEmpty()) {
+        <div class="empty-state">
+          <fa-icon [icon]="faMartiniGlass" class="empty-icon"></fa-icon>
+          <h2>No reviews yet</h2>
+          <p>Be the first to share your thoughts!</p>
+          <button class="btn-primary">Write a Review</button>
+        </div>
+      } @else {
+        @for (review of reviews(); track review.id) {
+          <app-review-card-full
+            [review]="review"
+            (like)="handleLike(review.id)"
+            (comment)="handleComment(review.id)"
+            (navigateToDrink)="navigateToDrink(review.drinkName)"
+          ></app-review-card-full>
+        }
+      }
+    </div>
+
+    <button class="fab" aria-label="Write a review">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+  </main>
+</div>
