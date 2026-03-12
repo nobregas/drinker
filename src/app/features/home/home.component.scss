@@ -1,7 +1,10 @@
+@use '../../styles/variables' as *;
+@use '../../styles/mixins' as *;
+
 .home {
-  background-color: #0F0F0F;
+  background-color: $color-primary-bg;
   min-height: calc(100vh - 60px);
-  color: #F5F5F5;
+  color: $color-primary-text;
   font-family: 'Inter', sans-serif;
   padding-bottom: 3rem;
 }
@@ -21,13 +24,13 @@
   margin: 0 0 0.5rem 0;
   font-size: 2rem;
   font-weight: 700;
-  color: #F5F5F5;
+  color: $color-primary-text;
 }
 
 .hero-subtitle {
   margin: 0 0 1.5rem 0;
   font-size: 0.95rem;
-  color: #B3B3B3;
+  color: $color-secondary-text;
 }
 
 .search-container {
@@ -36,23 +39,23 @@
 
 .search-input {
   width: 100%;
-  background-color: #1A1A1A;
-  border: 1px solid #2C2C2C;
+  background-color: $color-secondary-bg;
+  border: 1px solid $color-border;
   border-radius: 12px;
   padding: 0.875rem 1.25rem;
-  color: #F5F5F5;
+  color: $color-primary-text;
   font-size: 0.95rem;
   outline: none;
   transition: all 0.2s ease;
 }
 
 .search-input::placeholder {
-  color: #666;
+  color: $color-muted-text;
 }
 
 .search-input:focus {
-  border-color: #FF8C00;
-  box-shadow: 0 0 0 1px rgba(255, 140, 0, 0.2);
+  border-color: $color-accent-primary;
+  box-shadow: 0 0 0 1px rgba($color-accent-primary, 0.2);
 }
 
 /* Section Styles */
@@ -73,7 +76,7 @@
 
 .section-icon {
   font-size: 1.25rem;
-  color: #FF8C00;
+  color: $color-accent-primary;
 }
 
 .section-icon-only {
@@ -85,14 +88,14 @@
   margin: 0;
   font-size: 1.125rem;
   font-weight: 600;
-  color: #F5F5F5;
+  color: $color-primary-text;
 }
 
 .section-title-plain {
   margin: 0 0 1rem 0;
   font-size: 1.125rem;
   font-weight: 600;
-  color: #F5F5F5;
+  color: $color-primary-text;
 }
 
 .section-header-row {
@@ -104,18 +107,18 @@
 
 .results-count {
   font-size: 0.875rem;
-  color: #666;
+  color: $color-muted-text;
 }
 
 .view-all {
   font-size: 0.875rem;
-  color: #FF8C00;
+  color: $color-accent-primary;
   text-decoration: none;
   font-weight: 500;
 }
 
 .view-all:hover {
-  color: #FFA733;
+  color: $color-accent-hover;
 }
 
 /* Trending Scroll */
@@ -132,12 +135,12 @@
 }
 
 .trending-scroll::-webkit-scrollbar-track {
-  background: #1A1A1A;
+  background: $color-secondary-bg;
   border-radius: 2px;
 }
 
 .trending-scroll::-webkit-scrollbar-thumb {
-  background: #2C2C2C;
+  background: $color-border;
   border-radius: 2px;
 }
 
@@ -147,8 +150,8 @@
   height: 110px;
   border-radius: 10px;
   overflow: hidden;
-  background-color: #1A1A1A;
-  border: 1px solid #2C2C2C;
+  background-color: $color-secondary-bg;
+  border: 1px solid $color-border;
   display: flex;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -156,7 +159,7 @@
 }
 
 .trending-card:hover {
-  border-color: #FF8C00;
+  border-color: $color-accent-primary;
   transform: translateY(-2px);
 }
 
@@ -177,7 +180,7 @@
 .trending-rank {
   font-size: 0.7rem;
   font-weight: 700;
-  color: #FF8C00;
+  color: $color-accent-primary;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   margin-bottom: 0.25rem;
@@ -187,7 +190,7 @@
   margin: 0 0 0.375rem 0;
   font-size: 0.95rem;
   font-weight: 600;
-  color: #F5F5F5;
+  color: $color-primary-text;
   line-height: 1.2;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -200,7 +203,7 @@
   align-items: center;
   gap: 0.25rem;
   font-size: 0.875rem;
-  color: #FFC107;
+  color: $color-rating;
   font-weight: 500;
 }
 
@@ -225,10 +228,10 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem 1rem;
-  background-color: #1A1A1A;
-  border: 1px solid #2C2C2C;
+  background-color: $color-secondary-bg;
+  border: 1px solid $color-border;
   border-radius: 10px;
-  color: #F5F5F5;
+  color: $color-primary-text;
   font-size: 0.875rem;
   font-weight: 500;
   cursor: pointer;
@@ -237,19 +240,19 @@
 }
 
 .category-btn:hover {
-  background-color: #222222;
-  border-color: #FF8C00;
+  background-color: $color-surface;
+  border-color: $color-accent-primary;
 }
 
 .category-btn.active {
-  background-color: #FF8C00;
-  border-color: #FF8C00;
+  background-color: $color-accent-primary;
+  border-color: $color-accent-primary;
   color: #0F0F0F;
 }
 
 .category-btn.active:hover {
-  background-color: #FFA733;
-  border-color: #FFA733;
+  background-color: $color-accent-hover;
+  border-color: $color-accent-hover;
 }
 
 .category-icon {
@@ -280,12 +283,12 @@
   border-radius: 8px;
   overflow: hidden;
   cursor: pointer;
-  border: 1px solid #2C2C2C;
+  border: 1px solid $color-border;
   transition: all 0.2s ease;
 }
 
 .drink-item:hover {
-  border-color: #FF8C00;
+  border-color: $color-accent-primary;
   transform: scale(1.02);
 }
 
@@ -303,7 +306,7 @@
 .drink-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(15, 15, 15, 0.95) 0%, rgba(15, 15, 15, 0.4) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba($color-primary-bg, 0.95) 0%, rgba($color-primary-bg, 0.4) 50%, transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -314,7 +317,7 @@
   margin: 0 0 0.25rem 0;
   font-size: 0.8rem;
   font-weight: 600;
-  color: #F5F5F5;
+  color: $color-primary-text;
   line-height: 1.2;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -330,7 +333,7 @@
 
 .drink-category {
   font-size: 0.7rem;
-  color: #B3B3B3;
+  color: $color-secondary-text;
 }
 
 .drink-rating-small {
@@ -338,9 +341,9 @@
   align-items: center;
   gap: 0.125rem;
   font-size: 0.7rem;
-  color: #FFC107;
+  color: $color-rating;
   font-weight: 600;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba($color-black, 0.5);
   padding: 0.125rem 0.375rem;
   border-radius: 4px;
 }
@@ -359,20 +362,20 @@
 
 .page-num {
   padding: 0.5rem 0.75rem;
-  background-color: #1A1A1A;
+  background-color: $color-secondary-bg;
   border-radius: 6px;
   font-size: 0.875rem;
-  color: #B3B3B3;
+  color: $color-secondary-text;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .page-num:hover {
-  background-color: #222222;
+  background-color: $color-surface;
 }
 
 .page-num.active {
-  background-color: #FF8C00;
+  background-color: $color-accent-primary;
   color: #0F0F0F;
   font-weight: 600;
 }
@@ -381,13 +384,13 @@
 .no-results {
   text-align: center;
   padding: 3rem;
-  background-color: #1A1A1A;
+  background-color: $color-secondary-bg;
   border-radius: 12px;
-  border: 1px solid #2C2C2C;
+  border: 1px solid $color-border;
 }
 
 .no-results-icon {
-  color: #FF8C00;
+  color: $color-accent-primary;
   margin-bottom: 1rem;
   display: block;
 }
@@ -395,13 +398,13 @@
 .no-results-title {
   margin: 0 0 0.5rem 0;
   font-size: 1.125rem;
-  color: #F5F5F5;
+  color: $color-primary-text;
 }
 
 .no-results-text {
   margin: 0;
   font-size: 0.875rem;
-  color: #666;
+  color: $color-muted-text;
 }
 
 /* Reviews Section */
@@ -416,8 +419,8 @@
 }
 
 .review-item {
-  background-color: #1A1A1A;
-  border: 1px solid #2C2C2C;
+  background-color: $color-secondary-bg;
+  border: 1px solid $color-border;
   border-radius: 10px;
   padding: 1rem;
 }
@@ -449,12 +452,12 @@
 .user-name {
   font-size: 0.8rem;
   font-weight: 500;
-  color: #F5F5F5;
+  color: $color-primary-text;
 }
 
 .review-date {
   font-size: 0.7rem;
-  color: #666;
+  color: $color-muted-text;
 }
 
 .review-rating-badge {
@@ -462,7 +465,7 @@
   align-items: center;
   gap: 0.125rem;
   font-size: 0.75rem;
-  color: #FFC107;
+  color: $color-rating;
   font-weight: 700;
   background-color: #0F0F0F;
   padding: 0.25rem 0.5rem;
@@ -471,7 +474,7 @@
 
 .review-drink-name {
   font-size: 0.75rem;
-  color: #FF8C00;
+  color: $color-accent-primary;
   font-weight: 600;
   margin-bottom: 0.375rem;
 }
@@ -479,7 +482,7 @@
 .review-text-compact {
   margin: 0 0 0.75rem 0;
   font-size: 0.8rem;
-  color: #B3B3B3;
+  color: $color-secondary-text;
   line-height: 1.4;
   display: -webkit-box;
   -webkit-line-clamp: 3;
@@ -498,14 +501,14 @@
   gap: 0.375rem;
   background: none;
   border: none;
-  color: #666;
+  color: $color-muted-text;
   font-size: 0.75rem;
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
 .action-btn:hover {
-  color: #FF8C00;
+  color: $color-accent-primary;
 }
 
 /* Responsive */
