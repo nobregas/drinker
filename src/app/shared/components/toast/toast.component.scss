@@ -1,3 +1,6 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
 .toast {
   position: fixed;
   top: 20px;
@@ -24,23 +27,23 @@
   }
 
   &.toast-success {
-    background: #10B981;
-    border: 1px solid #34D399;
+    background: $color-success;
+    border: 1px solid $color-success-hover;
   }
 
   &.toast-error {
-    background: #EF4444;
-    border: 1px solid #F87171;
+    background: $color-error;
+    border: 1px solid $color-error-hover;
   }
 
   &.toast-info {
-    background: #3B82F6;
-    border: 1px solid #60A5FA;
+    background: $color-info;
+    border: 1px solid $color-info-hover;
   }
 
   &-icon {
     font-size: 20px;
-    color: #F5F5F5;
+    color: $color-primary-text;
   }
 
   &-content {
@@ -50,7 +53,7 @@
 
   &-message {
     margin: 0;
-    color: #F5F5F5;
+    color: $color-primary-text;
     font-size: 14px;
     line-height: 1.4;
   }
@@ -60,7 +63,7 @@
     border: none;
     cursor: pointer;
     padding: 4px;
-    color: #F5F5F5;
+    color: $color-primary-text;
     opacity: 0.7;
     transition: opacity 0.2s ease;
 
