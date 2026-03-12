@@ -1,6 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@use './app/styles/variables' as *;
+@use './app/styles/mixins' as *;
+
+/* You can add global styles to this file, and also import other style files */
 
 * {
   margin: 0;
@@ -14,8 +17,8 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #0F0F0F;
-  color: #F5F5F5;
+  background-color: $color-primary-bg;
+  color: $color-primary-text;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -38,21 +41,21 @@ input {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1A1A1A;
+  background: $color-secondary-bg;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2C2C2C;
+  background: $color-border;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF8C00;
+  background: $color-accent-primary;
 }
 
 /* Selection Styles */
 ::selection {
-  background-color: #FF8C00;
-  color: #0F0F0F;
+  background-color: $color-accent-primary;
+  color: $color-primary-bg;
 }
