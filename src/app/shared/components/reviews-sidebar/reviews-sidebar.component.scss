@@ -1,3 +1,6 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
 .sidebar {
   padding: 24px;
   display: flex;
@@ -13,11 +16,11 @@
     font-size: 14px;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    color: #b3b3b3;
+    color: $color-secondary-text;
     margin: 0 0 16px 0;
 
     fa-icon {
-      color: #ff8c00;
+      color: $color-accent-primary;
     }
   }
 }
@@ -45,26 +48,26 @@
     transition: all 150ms ease;
 
     &:hover {
-      background: #222;
+      background: $color-surface;
     }
 
     .category-name {
-      color: #f5f5f5;
+      color: $color-primary-text;
       font-size: 14px;
     }
 
     .category-count {
-      color: #b3b3b3;
+      color: $color-secondary-text;
       font-size: 12px;
     }
   }
 
   &.active button {
-    background: #ff8c00;
+    background: $color-accent-primary;
 
     .category-name,
     .category-count {
-      color: #0f0f0f;
+      color: $color-primary-bg;
     }
   }
 }
@@ -85,7 +88,7 @@
   transition: all 150ms ease;
 
   &:hover {
-    background: #222;
+    background: $color-surface;
   }
 
   .drink-thumbnail {
@@ -110,18 +113,18 @@
 
     .drink-name {
       font-size: 13px;
-      color: #f5f5f5;
+      color: $color-primary-text;
     }
 
     .drink-rating {
       font-size: 12px;
-      color: #b3b3b3;
+      color: $color-secondary-text;
       display: flex;
       align-items: center;
       gap: 4px;
 
       .star-icon {
-        color: #ffc107;
+        color: $color-rating;
       }
     }
   }
@@ -136,7 +139,7 @@
   transition: all 150ms ease;
 
   &:hover {
-    background: #222;
+    background: $color-surface;
   }
 
   .user-avatar {
@@ -153,12 +156,12 @@
 
     .trending-user {
       font-size: 13px;
-      color: #f5f5f5;
+      color: $color-primary-text;
     }
 
     .trending-text {
       font-size: 12px;
-      color: #b3b3b3;
+      color: $color-secondary-text;
       margin: 4px 0 8px 0;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -169,7 +172,7 @@
       display: flex;
       gap: 16px;
       font-size: 12px;
-      color: #b3b3b3;
+      color: $color-secondary-text;
 
       span {
         display: flex;
