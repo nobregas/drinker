@@ -46,7 +46,7 @@
 
 .item-count {
   font-size: 0.875rem;
-  color: #666;
+  color: $color-muted-text;
   font-weight: 500;
 }
 
@@ -117,7 +117,7 @@
 
   &.active {
     color: $color-accent-primary;
-    background-color: rgba(255, 140, 0, 0.1);
+    background-color: rgba($color-accent-primary, 0.1);
   }
 }
 
