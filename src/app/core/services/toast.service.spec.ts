@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 import { vi } from 'vitest';
 import { ToastService } from './toast.service';
 
@@ -6,8 +5,7 @@ describe('ToastService', () => {
   let service: ToastService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(ToastService);
+    service = new ToastService();
   });
 
   it('should show success toast', () => {

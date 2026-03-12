@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 import { ReviewService } from './review.service';
 import { MOCK_REVIEWS } from '../mock-data/mock-reviews';
 
@@ -6,10 +5,7 @@ describe('ReviewService', () => {
   let service: ReviewService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [ReviewService]
-    });
-    service = TestBed.inject(ReviewService);
+    service = new ReviewService();
   });
 
   it('should return all reviews', () => {

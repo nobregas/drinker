@@ -1,4 +1,3 @@
-import { TestBed } from '@angular/core/testing';
 import { CommentService } from './comment.service';
 import { MOCK_COMMENTS } from '../mock-data/mock-comments';
 import type { Comment } from '../models/comment.model';
@@ -7,10 +6,7 @@ describe('CommentService', () => {
   let service: CommentService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [CommentService]
-    });
-    service = TestBed.inject(CommentService);
+    service = new CommentService();
   });
 
   it('should return comments for a review', () => {
