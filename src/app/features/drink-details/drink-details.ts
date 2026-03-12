@@ -87,6 +87,6 @@ export class DrinkDetailsComponent implements OnInit {
   }
 
   goBack(): void {
-    this.router.navigate(['/']);
+    window.history.back();
   }
 }

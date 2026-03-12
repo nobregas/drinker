@@ -2,9 +2,13 @@
 $color-primary-bg: #0F0F0F;
 $color-secondary-bg: #1A1A1A;
 $color-surface: #222222;
+$color-surface-light: #202020;
+$color-surface-dark: #181818;
 $color-border: #2C2C2C;
+$color-border-soft: #1F1F1F;
 $color-primary-text: #F5F5F5;
 $color-secondary-text: #B3B3B3;
+$color-muted-text: #999999;
 $color-accent-primary: #FF8C00;
 $color-accent-hover: #FFA733;
 $color-rating: #FFC107;
@@ -35,8 +39,16 @@ $border-radius-lg: 12px;
 $shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
 $shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
 $shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.5);
+$shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.25);
 
 // Transitions
 $transition-fast: 0.2s ease;
+$transition-fast-hover: 0.2s ease-in-out;
 $transition-normal: 0.3s ease;
 $transition-slow: 0.5s ease;
+$transition-smooth: 0.25s ease-out;
+
+// Scale
+$scale-default: 1.00;
+$scale-hover: 1.02;
+$scale-active: 0.98;

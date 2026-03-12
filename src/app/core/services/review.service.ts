@@ -67,8 +67,6 @@ export class ReviewService {
     >();
 
     this.reviews().forEach((review) => {
-      // Find drink in MOCK_DRINKS by name
-      // For now, use mock data directly
       const existing = drinkMap.get(review.id);
       if (existing) {
         existing.ratings.push(review.rating);
@@ -76,7 +74,7 @@ export class ReviewService {
       } else {
         drinkMap.set(review.id, {
           drinkName: review.drinkName,
-          drinkImage: '', // Would need to fetch from drink data
+          drinkImage: review.drinkImage || '',
           ratings: [review.rating],
           reviewCount: 1
         });

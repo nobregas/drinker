@@ -66,6 +66,65 @@
   }
 }
 
+// Soft Card Shadow
+@mixin card-soft-shadow {
+  box-shadow: $shadow-soft;
+  transition: box-shadow $transition-smooth;
+
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  }
+}
+
+// Hover Lift Effect
+@mixin hover-lift {
+  transition: transform $transition-smooth, box-shadow $transition-smooth;
+
+  &:hover {
+    transform: scale($scale-hover);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+}
+
+// Smooth Border Transition
+@mixin border-transition($border-color: $color-accent-hover) {
+  border: 1px solid $color-border-soft;
+  transition: border-color $transition-fast-hover;
+
+  &:hover {
+    border-color: $border-color;
+  }
+}
+
+// Fade In Animation
+@mixin fade-in($duration: 300ms, $delay: 0ms) {
+  opacity: 0;
+  animation: fadeIn $duration ease-out $delay forwards;
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+// Fade In Up Animation
+@mixin fade-in-up($duration: 300ms, $delay: 0ms) {
+  opacity: 0;
+  animation: fadeInUp $duration ease-out $delay forwards;
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
 // Buttons
 @mixin button-primary {
   background-color: $color-accent-primary;
