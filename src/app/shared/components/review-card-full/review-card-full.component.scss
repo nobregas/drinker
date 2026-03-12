@@ -1,12 +1,15 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
 .review-card {
-  background: #1a1a1a;
+  background: $color-secondary-bg;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #2c2c2c;
+  border: 1px solid $color-border;
   transition: all 200ms ease;
 
   &:hover {
-    border-color: #ff8c00;
+    border-color: $color-accent-primary;
   }
 }
 
@@ -29,7 +32,7 @@
     left: 0;
     right: 0;
     height: 60px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+    background: linear-gradient(transparent, rgba($color-black, 0.7));
   }
 }
 
@@ -48,14 +51,14 @@
     .drink-name {
       font-size: 18px;
       font-weight: 600;
-      color: #f5f5f5;
+      color: $color-primary-text;
       margin: 0 0 6px 0;
     }
 
     .drink-category {
       font-size: 12px;
-      color: #b3b3b3;
-      background: #222;
+      color: $color-secondary-text;
+      background: $color-surface;
       padding: 4px 10px;
       border-radius: 12px;
     }
@@ -74,18 +77,18 @@
     font-weight: 600;
 
     &-top-reviewer {
-      background: #ffc107;
-      color: #0f0f0f;
+      background: $color-rating;
+      color: $color-primary-bg;
     }
 
     &-tasting-notes {
-      background: #9c27b0;
-      color: #f5f5f5;
+      background: $color-badge-purple;
+      color: $color-primary-text;
     }
 
     &-photo-review {
-      background: #2196f3;
-      color: #f5f5f5;
+      background: $color-badge-blue;
+      color: $color-primary-text;
     }
   }
 }
@@ -99,12 +102,12 @@
   .rating-value {
     font-size: 20px;
     font-weight: 600;
-    color: #f5f5f5;
+    color: $color-primary-text;
   }
 
   .avg-rating {
     font-size: 12px;
-    color: #b3b3b3;
+    color: $color-secondary-text;
   }
 }
 
@@ -130,12 +133,12 @@
     .username {
       font-size: 14px;
       font-weight: 500;
-      color: #f5f5f5;
+      color: $color-primary-text;
     }
 
     .timestamp {
       font-size: 12px;
-      color: #b3b3b3;
+      color: $color-secondary-text;
     }
   }
 }
@@ -145,7 +148,7 @@
 
   p {
     margin: 0;
-    color: #f5f5f5;
+    color: $color-primary-text;
     font-size: 14px;
     line-height: 1.6;
     max-height: 3.6em;
@@ -160,7 +163,7 @@
   .read-more {
     background: none;
     border: none;
-    color: #ff8c00;
+    color: $color-accent-primary;
     font-size: 14px;
     cursor: pointer;
     padding: 0;
@@ -188,7 +191,7 @@
     gap: 6px;
     background: none;
     border: none;
-    color: #b3b3b3;
+    color: $color-secondary-text;
     font-size: 14px;
     cursor: pointer;
     padding: 8px;
@@ -196,13 +199,13 @@
     transition: all 150ms ease;
 
     &:hover {
-      color: #f5f5f5;
-      background: #222;
+      color: $color-primary-text;
+      background: $color-surface;
     }
 
     &.liked {
       fa-icon.filled {
-        color: #dc3545;
+        color: $color-danger;
       }
     }
 
@@ -215,25 +218,25 @@
 .menu-btn {
   background: none;
   border: none;
-  color: #b3b3b3;
+  color: $color-secondary-text;
   cursor: pointer;
   padding: 8px;
   border-radius: 6px;
   transition: all 150ms ease;
 
   &:hover {
-    color: #f5f5f5;
-    background: #222;
+    color: $color-primary-text;
+    background: $color-surface;
   }
 }
 
 .liked-by {
   padding-top: 16px;
-  border-top: 1px solid #2c2c2c;
+  border-top: 1px solid $color-border;
 
   .liked-by-label {
     font-size: 12px;
-    color: #b3b3b3;
+    color: $color-secondary-text;
     margin-bottom: 8px;
     display: block;
   }
@@ -253,7 +256,7 @@
 
     .more-likes {
       font-size: 12px;
-      color: #b3b3b3;
+      color: $color-secondary-text;
     }
   }
 }
