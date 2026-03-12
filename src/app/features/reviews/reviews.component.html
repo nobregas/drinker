@@ -45,6 +45,7 @@
             (like)="handleLike(review.id)"
             (comment)="handleComment(review.id)"
             (navigateToDrink)="navigateToDrink(review.drinkName)"
+            (viewProfile)="openUserProfile($event)"
           ></app-review-card-full>
         }
       }
@@ -53,5 +54,10 @@
     <button class="fab" aria-label="Write a review">
       <fa-icon [icon]="faPlus"></fa-icon>
     </button>
+
+    <app-user-profile-modal
+      [(isOpen)]="isProfileModalOpen"
+      [(username)]="selectedUsername"
+    ></app-user-profile-modal>
   </main>
 </div>

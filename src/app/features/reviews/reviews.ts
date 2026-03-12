@@ -15,6 +15,7 @@ import {
 import { ReviewService, ReviewSortOption } from '../../core/services/review.service';
 import { ReviewCardFullComponent } from '../../shared/components/review-card-full/review-card-full';
 import { ReviewsSidebarComponent } from '../../shared/components/reviews-sidebar/reviews-sidebar';
+import { UserProfileModalComponent } from '../../shared/components/user-profile-modal/user-profile-modal';
 import { ToastService } from '../../core/services/toast.service';
 
 @Component({
@@ -25,7 +26,8 @@ import { ToastService } from '../../core/services/toast.service';
     FormsModule,
     FontAwesomeModule,
     ReviewCardFullComponent,
-    ReviewsSidebarComponent
+    ReviewsSidebarComponent,
+    UserProfileModalComponent
   ],
   templateUrl: './reviews.component.html',
   styleUrls: ['./reviews.component.scss']
@@ -46,6 +48,8 @@ export class ReviewsComponent {
   readonly selectedSort = model<ReviewSortOption>('most-liked');
   readonly selectedCategory = model('');
   readonly searchTerm = model('');
+  readonly isProfileModalOpen = model(false);
+  readonly selectedUsername = model('');
 
   readonly sortOptions = [
     { value: 'most-liked' as ReviewSortOption, label: 'Most Liked' },
@@ -107,5 +111,10 @@ export class ReviewsComponent {
   handleComment(reviewId: number): void {
     // Open comments modal
     console.log('Open comments for review:', reviewId);
+  }
+
+  openUserProfile(username: string): void {
+    this.selectedUsername.set(username);
+    this.isProfileModalOpen.set(true);
   }
 }
