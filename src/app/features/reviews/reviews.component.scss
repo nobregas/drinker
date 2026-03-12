@@ -12,7 +12,7 @@
   position: sticky;
   top: 60px;
   height: calc(100vh - 60px);
-  border-right: 1px solid #1f1f1f;
+  border-right: 1px solid $color-border-soft;
   overflow-y: auto;
 }
 
@@ -82,7 +82,7 @@
 
     &:hover {
       transform: scale(1.02);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 24px rgba($color-black, 0.5);
       border-color: $color-accent-hover;
     }
 
@@ -98,7 +98,7 @@
       left: 0;
       right: 0;
       padding: 16px;
-      background: linear-gradient(to top, rgba(15, 15, 15, 0.95), transparent);
+      background: linear-gradient(to top, rgba($color-primary-bg, 0.95), transparent);
 
       .carousel-drink-name {
         font-size: 18px;
@@ -183,7 +183,7 @@
     padding: 8px 16px;
     background: $color-surface;
     color: $color-primary-text;
-    border: 1px solid #1f1f1f;
+    border: 1px solid $color-border-soft;
     border-radius: 20px;
     white-space: nowrap;
     cursor: pointer;
@@ -193,7 +193,7 @@
 
     &:hover {
       border-color: $color-accent-hover;
-      background: #181818;
+      background: $color-surface-dark;
     }
 
     &.active {
@@ -212,7 +212,7 @@
     padding: 10px 16px;
     background: $color-surface;
     color: $color-primary-text;
-    border: 1px solid #1f1f1f;
+    border: 1px solid $color-border-soft;
     border-radius: 8px;
     cursor: pointer;
     min-width: 150px;
@@ -270,9 +270,9 @@
 
       .review-count {
         font-size: 14px;
-        color: #999;
+        color: $color-muted-text;
         font-weight: 400;
-        background: #1f1f1f;
+        background: $color-border-soft;
         padding: 2px 10px;
         border-radius: 12px;
       }
@@ -348,13 +348,13 @@
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.4);
+  box-shadow: 0 4px 12px rgba($color-accent-primary, 0.4);
   transition: all 200ms ease;
   z-index: 100;
 
   &:hover {
     transform: scale(1.05);
-    box-shadow: 0 6px 16px rgba(255, 140, 0, 0.5);
+    box-shadow: 0 6px 16px rgba($color-accent-primary, 0.5);
   }
 }
 
