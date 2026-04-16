@@ -1,0 +1,104 @@
+<div class="review-card">
+  @if (hasImage()) {
+    <div class="card-image" (click)="onNavigateToDrink()">
+      <img [src]="review().drinkImage" [alt]="review().drinkName" />
+      <div class="image-overlay"></div>
+    </div>
+  }
+
+  <div class="card-content">
+    <div class="card-header">
+      <div class="drink-info">
+        <h3 class="drink-name">{{ review().drinkName }}</h3>
+        @if (review().drinkCategory) {
+          <span class="drink-category">{{ review().drinkCategory }}</span>
+        }
+      </div>
+
+      @if (hasBadges()) {
+        <div class="badges">
+          @for (badge of review().badges; track badge) {
+            <span class="badge badge-{{ badge }}">
+              @switch (badge) {
+                @case ('top-reviewer') { Top Reviewer }
+                @case ('tasting-notes') { Tasting Notes }
+                @case ('photo-review') { Photo Review }
+              }
+            </span>
+          }
+        </div>
+      }
+    </div>
+
+    <div class="rating-section">
+      <app-rating [rating]="review().rating"></app-rating>
+      <span class="rating-value">{{ review().rating }}</span>
+      <span class="avg-rating">avg: 4.2 (47)</span>
+    </div>
+
+    <div class="user-section" (click)="onViewProfile()">
+      <img class="user-avatar" [src]="review().userAvatar" [alt]="review().userName" />
+      <div class="user-info">
+        <span class="username">@{{ review().userName }}</span>
+        <span class="timestamp">{{ getRelativeTime(review().date) }}</span>
+      </div>
+    </div>
+
+    <div class="review-text">
+      <p [class.expanded]="isExpanded()">
+        @if (!isExpanded() && review().text.length > 150) {
+          {{ review().text.substring(0, 150) }}...
+          <button class="read-more" (click)="toggleExpanded()">Read more</button>
+        } @else {
+          {{ review().text }}
+          @if (review().text.length > 150) {
+            <button class="read-more" (click)="toggleExpanded()">Show less</button>
+          }
+        }
+      </p>
+    </div>
+
+    <div class="card-footer">
+      <div class="engagement">
+        <button
+          class="engagement-btn"
+          [class.liked]="review().isLiked"
+          (click)="onLike()"
+        >
+          <fa-icon [icon]="faHeart" [class.filled]="review().isLiked"></fa-icon>
+          <span>{{ review().likes || 0 }}</span>
+        </button>
+
+        <button class="engagement-btn" (click)="onComment()">
+          <fa-icon [icon]="faComment"></fa-icon>
+          <span>{{ review().commentCount || 0 }}</span>
+        </button>
+      </div>
+
+      <button class="menu-btn">
+        <fa-icon [icon]="faEllipsisV"></fa-icon>
+      </button>
+    </div>
+
+    @if (isLikedByExpanded()) {
+      <div class="liked-by">
+        <span class="liked-by-label">Liked by</span>
+        <div class="liked-avatars">
+          <img
+            class="liked-avatar"
+            src="https://picsum.photos/24/24?random=201"
+          />
+          <img
+            class="liked-avatar"
+            src="https://picsum.photos/24/24?random=202"
+          />
+          <img
+            class="liked-avatar"
+            src="https://picsum.photos/24/24?random=203"
+          />
+          <span class="more-likes">+{{ (review().likes || 0) - 3 }}</span>
+        </div>
+      </div>
+    }
+  </div>
+</div>

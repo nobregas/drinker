@@ -61,7 +61,7 @@
     }
 
     &.active {
-      background: rgba(255, 140, 0, 0.2);
+      background: rgba($color-accent-primary, 0.2);
       color: $color-accent-primary;
       border-color: $color-accent-primary;
     }
@@ -130,9 +130,9 @@
   right: $spacing-sm;
   width: 36px;
   height: 36px;
-  background-color: rgba(15, 15, 15, 0.8);
+  background-color: rgba($color-primary-bg, 0.8);
   backdrop-filter: blur(4px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba($color-white, 0.1);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -140,7 +140,7 @@
   font-size: 1.25rem;
   color: $color-accent-primary;
   z-index: 2;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 2px 4px rgba($color-black, 0.6));
 }
 
 .info-card {
@@ -194,18 +194,18 @@
     font-weight: 600;
 
     &.status-aberta {
-      background: rgba(76, 175, 80, 0.2);
-      color: #4caf50;
+      background: rgba($color-status-open, 0.2);
+      color: $color-status-open;
     }
 
     &.status-finalizada {
-      background: rgba(255, 193, 7, 0.2);
-      color: #ffc107;
+      background: rgba($color-rating, 0.2);
+      color: $color-status-finalized;
     }
 
     &.status-fechada {
-      background: rgba(158, 158, 158, 0.2);
-      color: #9e9e9e;
+      background: rgba($color-status-closed, 0.2);
+      color: $color-status-closed;
     }
   }
 }
@@ -242,7 +242,7 @@
 
 .verdict-card {
   background: linear-gradient(135deg, rgba(255, 140, 0, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
-  border: 1px solid rgba(255, 140, 0, 0.3);
+  border: 1px solid rgba($color-accent-primary, 0.3);
 
   .verdict-text {
     font-style: italic;

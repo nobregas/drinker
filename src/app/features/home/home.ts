@@ -2,6 +2,7 @@ import { Component, signal, computed, model } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RouterModule } from '@angular/router';
 import { faFire, faStar, faMartiniGlass, faComment, faArrowRight, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { DrinkCardComponent } from '../../shared/components/drink-card/drink-card';
 import { WishlistService } from '../../core/services/wishlist.service';
@@ -18,6 +19,7 @@ import { Router } from '@angular/router';
     CommonModule,
     FormsModule,
     FontAwesomeModule,
+    RouterModule,
     DrinkCardComponent
   ],
   templateUrl: './home.component.html',

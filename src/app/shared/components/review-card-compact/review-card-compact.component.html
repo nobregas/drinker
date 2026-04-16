@@ -1,0 +1,66 @@
+<div class="review-card-compact" [class.expanded]="isExpanded()">
+  <div class="card-thumbnail" (click)="onNavigateToDrink()">
+    <img
+      [src]="review().drinkImage"
+      [alt]="review().drinkName"
+      *ngIf="review().drinkImage"
+    />
+  </div>
+
+  <div class="card-content">
+    <div class="card-header">
+      <div class="user-info" (click)="onViewProfile()">
+        <img
+          [src]="review().userAvatar"
+          [alt]="review().userName"
+          class="user-avatar"
+        />
+        <div class="user-details">
+          <span class="username">{{ review().userName }}</span>
+          <span class="time-ago">{{ getRelativeTime(review().date) }}</span>
+        </div>
+      </div>
+
+      @if (hasBadges()) {
+        <div class="badges">
+          @for (badge of review().badges!; track badge) {
+            <span class="badge">{{ badge }}</span>
+          }
+        </div>
+      }
+
+      <button class="more-btn" (click)="$event.stopPropagation()">
+        <fa-icon [icon]="faEllipsisV"></fa-icon>
+      </button>
+    </div>
+
+    <div class="card-body" (click)="onNavigateToDrink()">
+      <div class="drink-header">
+        <h3 class="drink-name">{{ review().drinkName }}</h3>
+        <div class="rating-wrapper">
+          <app-rating [rating]="review().rating"></app-rating>
+        </div>
+      </div>
+      <p class="drink-category">{{ review().drinkCategory }}</p>
+      <p class="review-text">{{ isExpanded() ? review().text : excerpt() }}</p>
+      @if (!isExpanded() && review().text.length > 120) {
+        <button class="expand-btn" (click)="isExpanded.set(true)">
+          Read more
+        </button>
+      }
+    </div>
+
+    <div class="card-footer">
+      <div class="engagement">
+        <button class="engage-btn" [class.liked]="review().isLiked" (click)="onLike()">
+          <fa-icon [icon]="faHeart"></fa-icon>
+          <span>{{ review().likes || 0 }}</span>
+        </button>
+        <button class="engage-btn" (click)="onComment()">
+          <fa-icon [icon]="faComment"></fa-icon>
+          <span>{{ review().commentCount || 0 }}</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

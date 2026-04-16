@@ -182,3 +182,21 @@ All data is mocked from `core/mock-data/` files. No API integration yet.
 ## Rules
 You must never write any code that does not follow the design system and code style rules.
 You must never write hexcode, etc... always look for the common styles at root src
+
+### Template Rules
+- **No service calls in templates**: Never call service methods directly in HTML templates. Always expose data through component properties (signals or computed signals). Templates should only bind to component properties, not service methods.
+
+**Bad example:**
+```html
+<span>{{ wishlistService.count() }}</span>
+```
+
+**Good example:**
+```typescript
+// Component
+readonly wishlistCount = toSignal(wishlistService.count$);
+```
+```html
+<!-- Template -->
+<span>{{ wishlistCount() }}</span>
+```

@@ -1,0 +1,142 @@
+<div class="reviews-page">
+  <aside class="sidebar">
+    <app-reviews-sidebar [(selectedCategory)]="selectedCategory"></app-reviews-sidebar>
+  </aside>
+
+  <main class="main-content">
+    <!-- Hero Trending Carousel -->
+    <section class="trending-section" *ngIf="trendingDrinks().length > 0">
+      <div class="section-header">
+        <h2 class="section-title">
+          <fa-icon [icon]="faFire" class="title-icon"></fa-icon>
+          Trending Drinks
+        </h2>
+      </div>
+
+      <div class="carousel-container">
+        <button
+          class="carousel-nav carousel-nav-left"
+          (click)="scrollCarousel('left')"
+          [disabled]="!canScrollLeft()"
+        >
+          <fa-icon [icon]="faChevronLeft"></fa-icon>
+        </button>
+
+        <div class="carousel-track" #carouselTrack>
+          @for (drink of trendingDrinks(); track drink.id) {
+            <div class="carousel-card" (click)="navigateToDrinkDetail(drink.id)">
+              <img [src]="drink.image" [alt]="drink.name" class="carousel-image" />
+              <div class="carousel-overlay">
+                <h3 class="carousel-drink-name">{{ drink.name }}</h3>
+                <div class="carousel-meta">
+                  <span class="carousel-rating">{{ drink.rating }} ★</span>
+                  <span class="carousel-reviews">{{ drink.reviewCount }} reviews</span>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <button
+          class="carousel-nav carousel-nav-right"
+          (click)="scrollCarousel('right')"
+          [disabled]="!canScrollRight()"
+        >
+          <fa-icon [icon]="faChevronRight"></fa-icon>
+        </button>
+      </div>
+    </section>
+
+    <!-- Content Header -->
+    <div class="content-header">
+      <div class="header-left">
+        <h1>Reviews</h1>
+        <div class="category-filters">
+          @for (category of categories(); track category.name) {
+            <button
+              class="category-pill"
+              [class.active]="selectedCategory() === category.name"
+              (click)="onCategorySelect(category.name)"
+            >
+              {{ category.name }}
+              <span class="count">({{ category.count }})</span>
+            </button>
+          }
+        </div>
+      </div>
+
+      <div class="header-right">
+        <select class="sort-select" [(ngModel)]="selectedSort">
+          @for (option of sortOptions; track option.value) {
+            <option [value]="option.value">{{ option.label }}</option>
+          }
+        </select>
+      </div>
+    </div>
+
+    <!-- Featured Reviews -->
+    <section class="featured-section" *ngIf="featuredReviews().length > 0 && selectedCategory() === ''">
+      <div class="section-header">
+        <h2 class="section-title">Featured Reviews</h2>
+      </div>
+
+      <div class="featured-grid">
+        @for (review of featuredReviews(); track review.id) {
+          <app-review-card-full
+            [review]="review"
+            (like)="handleLike(review.id)"
+            (comment)="handleComment(review.id)"
+            (navigateToDrink)="navigateToDrink(review.drinkName)"
+            (viewProfile)="openUserProfile($event)"
+          ></app-review-card-full>
+        }
+      </div>
+    </section>
+
+    <!-- All Reviews Grid -->
+    <section class="reviews-section">
+      <div class="section-header">
+        <h2 class="section-title">
+          @if (selectedCategory() && selectedCategory() !== 'All') {
+            {{ selectedCategory() }} Reviews
+          } @else {
+            All Reviews
+          }
+          <span class="review-count">{{ reviews().length }}</span>
+        </h2>
+      </div>
+
+      <div class="reviews-grid">
+        @if (isEmpty()) {
+          <div class="empty-state">
+            <fa-icon [icon]="faMartiniGlass" class="empty-icon"></fa-icon>
+            <h2>No reviews yet</h2>
+            <p>Be the first to share your thoughts!</p>
+            <button class="btn-primary">Write a Review</button>
+          </div>
+        } @else {
+          @for (review of reviews(); track review.id; let i = $index) {
+            <div class="review-grid-item" [style.animation-delay]="(i * 100) + 'ms'">
+              <app-review-card-compact
+                [review]="review"
+                (like)="handleLike(review.id)"
+                (comment)="handleComment(review.id)"
+                (navigateToDrink)="navigateToDrink(review.drinkName)"
+                (viewProfile)="openUserProfile($event)"
+              ></app-review-card-compact>
+            </div>
+          }
+        }
+      </div>
+    </section>
+
+    <button class="fab" aria-label="Write a review">
+      <fa-icon [icon]="faPlus"></fa-icon>
+    </button>
+
+    <app-user-profile-modal
+      [(isOpen)]="isProfileModalOpen"
+      [(username)]="selectedUsername"
+    ></app-user-profile-modal>
+  </main>
+</div>

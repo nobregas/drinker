@@ -1,0 +1,52 @@
+@if (isOpen() && userProfile()) {
+  <div class="modal-backdrop" (click)="onBackdropClick($event)">
+    <div class="modal">
+      <button class="modal-close" (click)="close()" aria-label="Close">
+        <fa-icon [icon]="faXmark"></fa-icon>
+      </button>
+
+      <div class="modal-content">
+        <div class="profile-header">
+          <img
+            class="profile-avatar"
+            [src]="userProfile()!.avatar"
+            [alt]="userProfile()!.username"
+          />
+          <div class="profile-info">
+            <h2>@{{ userProfile()!.username }}</h2>
+            <p class="join-date">
+              Joined {{ formattedJoinDate() }}
+            </p>
+          </div>
+        </div>
+
+        <div class="profile-stats">
+          <div class="stat">
+            <span class="stat-value">{{ userProfile()!.reviewCount }}</span>
+            <span class="stat-label">Reviews</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">{{ userProfile()!.followerCount }}</span>
+            <span class="stat-label">Followers</span>
+          </div>
+          <div class="stat">
+            <span class="stat-value">{{ userProfile()!.followingCount }}</span>
+            <span class="stat-label">Following</span>
+          </div>
+        </div>
+
+        @if (userProfile()!.bio) {
+          <p class="profile-bio">{{ userProfile()!.bio }}</p>
+        }
+
+        <button
+          class="follow-btn"
+          [class.following]="userProfile()!.isFollowing"
+          (click)="toggleFollow()"
+        >
+          {{ userProfile()!.isFollowing ? 'Following' : 'Follow' }}
+        </button>
+      </div>
+    </div>
+  </div>
+}

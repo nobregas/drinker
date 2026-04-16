@@ -1,5 +1,6 @@
 import { Component, signal, computed } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faHeart, faMartiniGlass, faSortAmountDown, faSortAmountUp } from '@fortawesome/free-solid-svg-icons';
 import { DrinkCardComponent } from '../../shared/components/drink-card/drink-card';
@@ -12,7 +13,7 @@ type SortOption = 'recent' | 'price-asc' | 'price-desc' | 'rating-desc';
 @Component({
   selector: 'app-wishlist',
   standalone: true,
-  imports: [CommonModule, FontAwesomeModule, DrinkCardComponent],
+  imports: [CommonModule, RouterModule, FontAwesomeModule, DrinkCardComponent],
   templateUrl: './wishlist.component.html',
   styleUrls: ['./wishlist.component.scss']
 })

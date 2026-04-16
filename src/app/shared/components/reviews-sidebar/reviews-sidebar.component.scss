@@ -1,0 +1,184 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.sidebar {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.sidebar-section {
+  .sidebar-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: $color-secondary-text;
+    margin: 0 0 16px 0;
+
+    fa-icon {
+      color: $color-accent-primary;
+    }
+  }
+}
+
+.category-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.category-item {
+  button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 150ms ease;
+
+    &:hover {
+      background: $color-surface;
+    }
+
+    .category-name {
+      color: $color-primary-text;
+      font-size: 14px;
+    }
+
+    .category-count {
+      color: $color-secondary-text;
+      font-size: 12px;
+    }
+  }
+
+  &.active button {
+    background: $color-accent-primary;
+
+    .category-name,
+    .category-count {
+      color: $color-primary-bg;
+    }
+  }
+}
+
+.top-rated-list,
+.trending-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.top-rated-item {
+  display: flex;
+  gap: 12px;
+  padding: 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 150ms ease;
+
+  &:hover {
+    background: $color-surface;
+  }
+
+  .drink-thumbnail {
+    width: 48px;
+    height: 48px;
+    border-radius: 6px;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .drink-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+
+    .drink-name {
+      font-size: 13px;
+      color: $color-primary-text;
+    }
+
+    .drink-rating {
+      font-size: 12px;
+      color: $color-secondary-text;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+
+      .star-icon {
+        color: $color-rating;
+      }
+    }
+  }
+}
+
+.trending-item {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 150ms ease;
+
+  &:hover {
+    background: $color-surface;
+  }
+
+  .user-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .trending-content {
+    flex: 1;
+    min-width: 0;
+
+    .trending-user {
+      font-size: 13px;
+      color: $color-primary-text;
+    }
+
+    .trending-text {
+      font-size: 12px;
+      color: $color-secondary-text;
+      margin: 4px 0 8px 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .trending-stats {
+      display: flex;
+      gap: 16px;
+      font-size: 12px;
+      color: $color-secondary-text;
+
+      span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+    }
+  }
+}

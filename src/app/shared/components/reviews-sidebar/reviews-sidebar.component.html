@@ -1,0 +1,68 @@
+<div class="sidebar">
+  <section class="sidebar-section">
+    <h3 class="sidebar-title">Categories</h3>
+    <ul class="category-list">
+      @for (category of categories(); track category.name) {
+        <li class="category-item" [class.active]="isCategoryActive(category)">
+          <button (click)="onCategoryClick(category)">
+            <span class="category-name">{{ category.name }}</span>
+            <span class="category-count">{{ category.count }}</span>
+          </button>
+        </li>
+      }
+    </ul>
+  </section>
+
+  <section class="sidebar-section">
+    <h3 class="sidebar-title">
+      <fa-icon [icon]="faTrophy"></fa-icon>
+      Top Rated This Week
+    </h3>
+    <div class="top-rated-list">
+      @for (drink of topRatedDrinks(); track drink.drinkId) {
+        <div class="top-rated-item">
+          <div class="drink-thumbnail">
+            @if (drink.drinkImage) {
+              <img [src]="drink.drinkImage" [alt]="drink.drinkName" />
+            }
+          </div>
+          <div class="drink-info">
+            <span class="drink-name">{{ drink.drinkName }}</span>
+            <div class="drink-rating">
+              <fa-icon [icon]="faStar" class="star-icon"></fa-icon>
+              {{ drink.rating.toFixed(1) }} ({{ drink.reviewCount }})
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="sidebar-section">
+    <h3 class="sidebar-title">
+      <fa-icon [icon]="faFire"></fa-icon>
+      Trending
+    </h3>
+    <div class="trending-list">
+      @for (review of trendingReviews(); track review.id) {
+        <div class="trending-item">
+          <img
+            class="user-avatar"
+            [src]="review.userAvatar"
+            [alt]="review.userName"
+          />
+          <div class="trending-content">
+            <span class="trending-user">{{ review.userName }}</span>
+            <p class="trending-text">{{ review.text.substring(0, 60) }}...</p>
+            <div class="trending-stats">
+              <span><fa-icon [icon]="faHeart"></fa-icon> {{ review.likes || 0 }}</span>
+              <span
+                ><fa-icon [icon]="faComment"></fa-icon> {{ review.commentCount || 0 }}</span
+              >
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </section>
+</div>

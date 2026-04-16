@@ -9,7 +9,7 @@
       <a routerLink="/" class="nav-link" [class.active]="isRouteActive('/')">Início</a>
       <a routerLink="/" class="nav-link">Explorar</a>
       <a routerLink="/" class="nav-link">Categorias</a>
-      <a routerLink="/" class="nav-link">Reviews</a>
+      <a routerLink="/reviews" class="nav-link" [class.active]="isRouteActive('/reviews')">Reviews</a>
     </div>
     
     <div class="nav-actions">
@@ -26,10 +26,6 @@
       </a>
       <button class="nav-btn" title="Notificações">
         <fa-icon [icon]="faBell" size="lg"></fa-icon>
-      </button>
-      <button class="nav-btn primary" title="Adicionar">
-        <fa-icon [icon]="faPlus"></fa-icon>
-        <span class="btn-text">Registrar</span>
       </button>
       <div class="user-avatar">
         <span>GB</span>
